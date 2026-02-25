@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(circle at top, #171717 0%, #070707 48%);
+  color: #fafafa;
+  min-height: 100vh;
+}
+
+.card {
+  @apply bg-card border border-border rounded-2xl p-6 shadow-lg;
+}
+
+.input {
+  @apply w-full rounded-xl border border-border bg-black px-3 py-2 text-sm text-white outline-none focus:border-accent;
+}
+
+.btn {
+  @apply rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-black hover:brightness-110;
+}
