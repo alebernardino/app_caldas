@@ -3,23 +3,26 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background: radial-gradient(circle at top, #171717 0%, #070707 48%);
-  color: #fafafa;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(56, 189, 248, 0.28), transparent 34%),
+    radial-gradient(circle at 85% 8%, rgba(14, 165, 233, 0.2), transparent 30%),
+    linear-gradient(180deg, #f8fcff 0%, #edf6ff 45%, #e4f1ff 100%);
+  color: #0f172a;
   min-height: 100vh;
 }
 
 .card {
-  @apply bg-card border border-border rounded-2xl p-6 shadow-lg;
+  @apply rounded-2xl border border-sky-100 bg-white/85 p-6 shadow-lg backdrop-blur;
 }
 
 .input {
-  @apply w-full rounded-xl border border-border bg-black px-3 py-2 text-sm text-white outline-none focus:border-accent;
+  @apply w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-sky-500;
 }
 
 .btn {
-  @apply rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-black hover:brightness-110;
+  @apply rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-2 text-sm font-semibold text-white hover:brightness-110;
 }
