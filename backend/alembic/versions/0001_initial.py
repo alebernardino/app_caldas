@@ -18,14 +18,16 @@ depends_on: str | Sequence[str] | None = None
 
 user_role_enum = sa.Enum("ADMIN", "COMPANY", "PROVIDER", name="userrole")
 booking_status_enum = sa.Enum(
-    "PENDING", "ACCEPTED", "REJECTED", "CANCELED", "COMPLETED", name="bookingstatus"
+    "PENDING",
+    "ACCEPTED",
+    "REJECTED",
+    "CANCELED",
+    "COMPLETED",
+    name="bookingstatus",
 )
 
 
 def upgrade() -> None:
-    user_role_enum.create(op.get_bind(), checkfirst=True)
-    booking_status_enum.create(op.get_bind(), checkfirst=True)
-
     op.create_table(
         "users",
         sa.Column("id", sa.Uuid(), nullable=False),
@@ -152,6 +154,3 @@ def downgrade() -> None:
 
     op.drop_index(op.f("ix_users_email"), table_name="users")
     op.drop_table("users")
-
-    booking_status_enum.drop(op.get_bind(), checkfirst=True)
-    user_role_enum.drop(op.get_bind(), checkfirst=True)
